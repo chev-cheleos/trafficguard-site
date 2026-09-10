@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TrafficGuard Privacy Policy</title>
+<meta name="description" content="Privacy policy for TrafficGuard for macOS by Albatros Solutions. Everything TrafficGuard measures stays on your Mac.">
+<meta name="color-scheme" content="light dark">
+<style>
+  /* Light palette. Cool-biased neutrals leaning toward the teal accent —
+     the instrument-panel end of the spectrum, not warm editorial paper. */
+  :root {
+    --ground:    #fbfcfd;
+    --surface:   #eff3f6;
+    --surface-2: #e5ebf0;
+    --border:    #d8e0e8;
+    --rule:      #c3ceda;
+    --text:      #151a20;
+    --muted:     #5a6673;
+    --accent:    #0e6f76;
+    --accent-dim:#0e6f7618;
+    --good:      #1f6d4a;
+    --stop:      #96421f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:    #11151a;
+      --surface:   #1a2027;
+      --surface-2: #212932;
+      --border:    #2a333d;
+      --rule:      #3a4552;
+      --text:      #e3e9ef;
+      --muted:     #98a4b1;
+      --accent:    #55c3ca;
+      --accent-dim:#55c3ca1f;
+      --good:      #6cc79a;
+      --stop:      #e0916b;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:    #11151a;
+    --surface:   #1a2027;
+    --surface-2: #212932;
+    --border:    #2a333d;
+    --rule:      #3a4552;
+    --text:      #e3e9ef;
+    --muted:     #98a4b1;
+    --accent:    #55c3ca;
+    --accent-dim:#55c3ca1f;
+    --good:      #6cc79a;
+    --stop:      #e0916b;
+  }
+
+  /* Typefaces are the platform's own — New York for the body on Apple
+     devices, Georgia elsewhere. No webfont is fetched, because a page
+     making this particular promise should not be calling a third party. */
+  :root {
+    --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+            Roboto, "Helvetica Neue", Arial, sans-serif;
+    --serif: ui-serif, "New York", Georgia, "Iowan Old Style",
+             "Palatino Linotype", Palatino, serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+            "Liberation Mono", monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--text);
+    font-family: var(--serif);
+    font-size: 1.0625rem;
+    line-height: 1.68;
+    padding: clamp(2rem, 6vw, 4.5rem) 1.15rem clamp(3rem, 8vw, 5rem);
+  }
+
+  main {
+    max-width: 41rem;   /* ~66 characters at this size */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  /* ---- Masthead ---- */
+  .masthead { display: flex; flex-direction: column; gap: 1.25rem; }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: .715rem;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0;
+  }
+  h1 {
+    font-family: var(--sans);
+    font-size: clamp(1.75rem, 5.5vw, 2.35rem);
+    font-weight: 640;
+    letter-spacing: -.022em;
+    line-height: 1.14;
+    text-wrap: balance;
+    margin: 0;
+  }
+  .issue {
+    font-family: var(--mono);
+    font-size: .78rem;
+    line-height: 1.7;
+    color: var(--muted);
+    margin: 0;
+  }
+  .issue span { white-space: nowrap; }
+
+  /* The claim the whole document exists to support. */
+  .claim {
+    background: var(--accent-dim);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 3px;
+    padding: 1.1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+  }
+  .claim p { margin: 0; }
+  .claim p:first-child { font-size: 1.09rem; }
+
+  /* ---- Sections ---- */
+  section { display: flex; flex-direction: column; gap: .9rem; }
+  h2 {
+    font-family: var(--sans);
+    font-size: 1.16rem;
+    font-weight: 620;
+    letter-spacing: -.012em;
+    line-height: 1.3;
+    text-wrap: balance;
+    margin: 0;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--rule);
+  }
+  h3 {
+    font-family: var(--sans);
+    font-size: .875rem;
+    font-weight: 600;
+    letter-spacing: .01em;
+    margin: .6rem 0 0;
+  }
+  p { margin: 0; }
+  ul { margin: 0; padding-left: 1.3rem; display: flex; flex-direction: column; gap: .45rem; }
+  li::marker { color: var(--muted); }
+  a { color: var(--accent); text-underline-offset: .16em; }
+  a:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  strong { font-weight: 640; }
+
+  code {
+    font-family: var(--mono);
+    font-size: .855em;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: .08em .32em;
+    overflow-wrap: anywhere;
+  }
+
+  /* ---- Specimens: the checkable facts, set apart from the prose ---- */
+  .spec {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+  }
+  .spec-label {
+    font-family: var(--mono);
+    font-size: .69rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0;
+  }
+  .path {
+    font-family: var(--mono);
+    font-size: .8rem;
+    line-height: 1.6;
+    color: var(--text);
+    margin: 0;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: .15rem;
+  }
+
+  .tablewrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -1.1rem; padding: 0 1.1rem; }
+  table { border-collapse: collapse; width: 100%; min-width: 27rem; }
+  th, td {
+    text-align: left;
+    vertical-align: top;
+    padding: .5rem .7rem .5rem 0;
+    border-bottom: 1px solid var(--border);
+    font-family: var(--sans);
+    font-size: .845rem;
+    line-height: 1.5;
+  }
+  th {
+    font-family: var(--mono);
+    font-size: .69rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--muted);
+    padding-top: 0;
+  }
+  tr:last-child td { border-bottom: none; padding-bottom: 0; }
+  td:first-child { white-space: nowrap; padding-right: 1.1rem; }
+  td code { background: none; border: none; padding: 0; font-size: .82rem; }
+
+  /* ---- The document's spine: what stays vs. what leaves ---- */
+  .ledger {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    gap: .75rem;
+  }
+  .ledger div {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: .85rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+  }
+  .ledger dt, .ledger .k {
+    font-family: var(--mono);
+    font-size: .69rem;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .ledger .v {
+    font-family: var(--sans);
+    font-size: 1.02rem;
+    font-weight: 600;
+    letter-spacing: -.01em;
+  }
+  .ledger .stays .v { color: var(--good); }
+  .ledger .leaves .v { color: var(--stop); }
+  .ledger .n {
+    font-family: var(--sans);
+    font-size: .82rem;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: .45rem;
+    font-family: var(--sans);
+    font-size: .82rem;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  footer p { margin: 0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+<header class="masthead">
+  <p class="eyebrow">Albatros Solutions</p>
+  <h1>TrafficGuard Privacy Policy</h1>
+  <p class="issue">
+    <span>Effective 9 September 2026</span> &nbsp;&middot;&nbsp;
+    <span>TrafficGuard 1.0.0 (69)</span> &nbsp;&middot;&nbsp;
+    <span>macOS</span>
+  </p>
+  <div class="claim">
+    <p><strong>TrafficGuard measures how much network data each application on your Mac
+    sends and receives. Everything it measures stays on your Mac.</strong></p>
+    <p>There is no TrafficGuard server, no account, no analytics, and no advertising.
+    Albatros Solutions never receives your traffic data, and neither does anybody else. The
+    only network connection TrafficGuard itself causes is Apple&rsquo;s own StoreKit talking
+    to the App Store when you buy or restore TrafficGuard&nbsp;Pro, or start the free 7-day
+    trial, which the App Store records as a purchase at no charge &mdash; and TrafficGuard
+    never sees your payment details.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Who we are</h2>
+  <p>TrafficGuard is developed and published by Albatros Solutions. You can reach us at
+  <a href="mailto:albatrossolutions@icloud.com">albatrossolutions@icloud.com</a>, which is
+  also the address shown inside the app under Settings &rsaquo; About.</p>
+</section>
+
+<section>
+  <h2>What TrafficGuard observes</h2>
+  <p>When you enable its network filter, TrafficGuard runs a macOS <em>transparent
+  proxy</em> system extension built on Apple&rsquo;s Network Extension framework. macOS
+  hands that extension information about each network flow on your Mac. From that,
+  TrafficGuard keeps four things:</p>
+  <ul>
+    <li><strong>Which application</strong> opened the flow, resolved from the flow&rsquo;s
+    audit token to a code-signing identifier or bundle identifier. Flows macOS does not
+    attribute reliably are shown honestly as <strong>System or Unattributed</strong> rather
+    than guessed at.</li>
+    <li><strong>How many bytes</strong> that application sent and received.</li>
+    <li><strong>When</strong> it was last active, and how many of its flows are open.</li>
+    <li><strong>Which network</strong> the bytes were used on &mdash; a Wi-Fi network name,
+    or &ldquo;wired&rdquo;, or &ldquo;unknown&rdquo; when the name is unavailable.</li>
+  </ul>
+  <p>That is the whole list. It is metadata about volume and ownership, not about
+  content.</p>
+</section>
+
+<section>
+  <h2>What TrafficGuard never sees or records</h2>
+  <p>TrafficGuard does <strong>not</strong> read, store, or transmit:</p>
+  <ul>
+    <li>packet contents or payloads of any kind</li>
+    <li>URLs, web page contents, or browsing history</li>
+    <li>domain names or DNS queries</li>
+    <li>messages, email, documents, or file contents</li>
+    <li>passwords, tokens, or credentials</li>
+    <li>your geographic location, or any coordinate</li>
+  </ul>
+  <p>TrafficGuard does not decrypt anything it proxies, and makes no attempt to. The
+  extension counts bytes and passes flows through untouched.</p>
+</section>
+
+<section>
+  <h2>Why TrafficGuard asks for Location permission</h2>
+  <p>This is the app&rsquo;s most surprising permission, so here is the plain
+  explanation.</p>
+  <p>TrafficGuard&rsquo;s <strong>Network Profiles</strong> feature lets you apply
+  different rules on different Wi-Fi networks &mdash; blocking backup and update traffic on
+  a phone hotspot, say, but not at home. To do that, the app has to know the <em>name</em>
+  of the Wi-Fi network you are on.</p>
+  <p>On macOS 14 and later, Apple classifies the Wi-Fi network name (SSID) as location
+  data. The system call that returns it, <code>CWWiFiClient.interface().ssid()</code>,
+  returns nothing unless the app holds <strong>Location (When In Use)</strong>
+  authorization. That authorization is the only way to read a network name; there is no
+  narrower permission to ask for.</p>
+  <p>So, precisely:</p>
+  <ul>
+    <li>TrafficGuard requests Location <strong>solely to read the Wi-Fi network
+    name.</strong></li>
+    <li>TrafficGuard <strong>never calls <code>startUpdatingLocation()</code></strong> and
+    <strong>never reads a latitude, a longitude, an altitude, or any other
+    coordinate.</strong> No location data of any kind is stored or transmitted.</li>
+    <li>If you <strong>decline</strong>, TrafficGuard keeps working. Network-name matching
+    switches off and you choose the profile you want by hand. Nothing else is lost.</li>
+  </ul>
+  <p>The Wi-Fi network names you have used are kept on your Mac, alongside your traffic
+  history, so the app can label that history by network and match your profiles.</p>
+</section>
+
+<section>
+  <h2>What is stored, and where</h2>
+  <p>Everything TrafficGuard records is written to your own Mac, in two places only
+  TrafficGuard and its extension can read.</p>
+
+  <div class="spec">
+    <p class="spec-label">App Group container</p>
+    <p class="path">~/Library/Group&nbsp;Containers/group.com.albatrossolutions.TrafficGuard/</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">File</th><th scope="col">What it holds</th></tr></thead>
+        <tbody>
+          <tr><td><code>traffic-v1.json</code></td><td>today&rsquo;s per-application inbound and outbound byte totals, and flow counts</td></tr>
+          <tr><td><code>history-v1.json</code></td><td>up to 30 days of daily per-application totals, split by network name</td></tr>
+          <tr><td><code>rules-v1.json</code></td><td>which applications you have chosen to block</td></tr>
+          <tr><td><code>entitlement-v1.json</code></td><td>whether TrafficGuard Pro is active</td></tr>
+          <tr><td><code>trial-v1.json</code></td><td>when your free 7-day trial started &mdash; a local copy of the App&nbsp;Store&rsquo;s own record</td></tr>
+          <tr><td><code>widget-v1.json</code></td><td>the figures your desktop widgets display</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="spec">
+    <p class="spec-label">The app&rsquo;s own preferences</p>
+    <p>Stored in <code>UserDefaults</code> and readable only by TrafficGuard: your network
+    profiles and the Wi-Fi network names bound to them, your data cap, your display
+    settings, the state of the Guard switch, and whether the app has shown you its panel
+    on first launch.</p>
+  </div>
+
+  <div class="spec">
+    <p class="spec-label">Your keychain</p>
+    <p>One item, readable only by TrafficGuard: the date on which you started the free
+    7-day trial, and nothing else. It is kept there rather than in the container so that
+    Remove Network Filter&hellip; &mdash; which deletes every file above &mdash; cannot hand
+    back a trial that has already been used; it therefore survives that removal and survives
+    deleting the app. Because the trial is a free in-app purchase, the App&nbsp;Store also
+    holds the record that you took it, in your Apple Account, as it does for any purchase;
+    the keychain item is the copy this Mac can read without asking Apple.</p>
+  </div>
+
+  <div class="spec">
+    <p class="spec-label">Launch at Login</p>
+    <p>If you switch it on in Settings &rsaquo; General, it is a login item registered with
+    macOS itself. TrafficGuard stores nothing for it; macOS does, and System Settings &rsaquo;
+    General &rsaquo; Login Items &amp; Extensions shows and controls it. It is off until you
+    turn it on.</p>
+  </div>
+
+  <p>None of this is synced, uploaded, or shared with anyone. It is subject only to
+  whatever ordinary macOS backup you have configured yourself &mdash; Time Machine, say
+  &mdash; which is under your control, not ours.</p>
+
+  <h3>Diagnostic log lines</h3>
+  <p>TrafficGuard writes occasional diagnostic notices to <strong>macOS&rsquo;s own unified
+  log</strong>, the log you can read in Console.app. Since build 66, some of those lines
+  name an application in order to explain how a flow was attributed &mdash; for example,
+  &ldquo;Attributed <code>/usr/libexec/foo</code> to parent app
+  <code>com.example.bar</code>&rdquo;. Each distinct message is written only once per run,
+  so the log is not flooded.</p>
+  <p>Those lines live in the macOS system log on your Mac. TrafficGuard does not collect
+  them, does not upload them, and has no mechanism to send them anywhere. They leave your
+  Mac only if you yourself choose to share a system diagnostic report with Apple or with
+  us.</p>
+</section>
+
+<section>
+  <h2>What leaves your Mac</h2>
+
+  <div class="ledger">
+    <div class="stays">
+      <span class="k">Traffic data</span>
+      <span class="v">Never leaves</span>
+      <span class="n">No server, no upload, no third party.</span>
+    </div>
+    <div class="leaves">
+      <span class="k">Purchases</span>
+      <span class="v">StoreKit &rarr; Apple</span>
+      <span class="n">Apple handles payment; we never see it.</span>
+    </div>
+  </div>
+
+  <p><strong>Traffic data: nothing.</strong> There is no TrafficGuard server. The app
+  contains no analytics SDK, no crash-reporting SDK, no advertising SDK, and no third-party
+  library of any kind.</p>
+  <p>That is verifiable rather than merely asserted. Across the three shipped 1.0.0
+  (69) binaries &mdash; the app, the widget extension, and the network filter
+  extension &mdash; there are zero <code>URLSession</code> or other HTTP-client symbols,
+  zero linked libraries outside Apple&rsquo;s own system frameworks, and no URL belonging
+  to Albatros Solutions or to any third party. Every URL present anywhere in the bundle is
+  an Apple certificate-authority, OCSP, or CRL endpoint placed there by code signing, and
+  is used by macOS rather than by TrafficGuard.</p>
+  <p><strong>Purchases: StoreKit, to Apple.</strong> TrafficGuard Pro is a non-consumable
+  in-app purchase sold through Apple&rsquo;s StoreKit&nbsp;2. When you buy it, restore it,
+  or when the app checks your entitlement, StoreKit connects to Apple over the
+  system&rsquo;s own secure connection. TrafficGuard receives back an Apple-signed
+  transaction result and stores only whether Pro is active. Your card number, billing
+  address, and Apple Account details go to Apple, and are never seen by TrafficGuard or by
+  Albatros Solutions. Apple&rsquo;s handling of them is governed by
+  <a href="https://www.apple.com/legal/privacy/">Apple&rsquo;s Privacy Policy</a>.</p>
+  <p><strong>The free 7-day trial works the same way, at no charge.</strong> Starting it is
+  an in-app purchase at a price of zero &mdash; the form Apple prescribes for a trial &mdash;
+  which the App&nbsp;Store records against your Apple Account so that it can be taken once and
+  restored like any purchase. TrafficGuard keeps only the date it started. No card is charged,
+  and nothing beyond that StoreKit exchange leaves your Mac.</p>
+  <p><strong>Tracking: none.</strong> TrafficGuard does not track you across apps or
+  websites, declares no tracking domains, and does not use the App Tracking Transparency
+  framework, because it has nothing to ask you for.</p>
+</section>
+
+<section>
+  <h2>How long data is kept</h2>
+  <ul>
+    <li><strong>Today&rsquo;s traffic totals</strong> roll over at local midnight.</li>
+    <li><strong>Daily history</strong> is capped at <strong>30 days</strong>. When a
+    thirty-first day is recorded, the oldest day is deleted from the file. There is no
+    longer-term archive.</li>
+    <li><strong>Rules, profiles, and settings</strong> are kept until you change or delete
+    them.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>How to delete everything</h2>
+  <div class="spec">
+    <p class="spec-label">In the app</p>
+    <p><strong>Settings &rsaquo; About &rsaquo; Remove Network Filter&hellip;</strong></p>
+  </div>
+  <p>Confirming that removes, in order: the network configuration, which also clears the
+  &ldquo;TrafficGuard Transparent Proxy&rdquo; entry from System Settings; the system
+  extension itself; every file in the App Group container listed above;
+  TrafficGuard&rsquo;s entire preferences domain; and the Launch at Login item, if you had
+  switched it on. Nothing of TrafficGuard&rsquo;s is left running or stored, except the
+  single keychain record that your free trial was used &mdash; the dialog says so, and it is
+  kept precisely so that removal cannot hand a spent trial back. macOS may ask you to
+  restart to finish retiring the extension, after which you can drag TrafficGuard to the
+  Trash.</p>
+  <p>Two narrower options are also available:</p>
+  <ul>
+    <li><strong>Settings &rsaquo; Traffic &amp; History &rsaquo; Traffic Data &rsaquo;
+    Reset Today&rsquo;s Statistics</strong> clears today&rsquo;s totals only.</li>
+    <li><strong>Settings &rsaquo; General &rsaquo; Blocking Recovery &rsaquo; Allow All
+    Applications</strong> clears every block rule.</li>
+  </ul>
+  <p>One caution: dragging TrafficGuard to the Trash <em>without</em> removing the filter
+  first leaves the system extension installed and running, because macOS registers that
+  extension with the system rather than with the app bundle. Remove the filter first.</p>
+  <p>Because we hold no data about you off your Mac, there is nothing for us to delete on
+  request, and no account to close. Deleting it on your Mac deletes all of it.</p>
+</section>
+
+<section>
+  <h2>Children&rsquo;s privacy</h2>
+  <p>TrafficGuard is a general-purpose utility for macOS. It is not directed at children,
+  it collects no personal information from anyone of any age, and it has no accounts, no
+  profiles, no messaging, and no user-generated content. Because nothing is transmitted or
+  collected, no information from a child under 13 &mdash; or the equivalent age in your
+  jurisdiction &mdash; is ever received by Albatros Solutions.</p>
+</section>
+
+<section>
+  <h2>Your rights</h2>
+  <p>Privacy laws such as the GDPR and the CCPA give you rights to access, correct, export,
+  and delete the personal data a company holds about you. Albatros Solutions holds none:
+  there is no database, no server, and no record of you. Your data lives only on your own
+  Mac, where you already have full access to it and can delete it at any time using the
+  steps above.</p>
+  <p>We do not sell or share personal information, because we do not have any.</p>
+</section>
+
+<section>
+  <h2>Changes to this policy</h2>
+  <p>If a future version of TrafficGuard changes what it stores, or introduces any network
+  communication of its own, this policy will be updated before that version is released and
+  the effective date at the top will change. Material changes will also be noted in the
+  app&rsquo;s release notes.</p>
+</section>
+
+<section>
+  <h2>Contact</h2>
+  <p>Questions about this policy, or about anything in it:</p>
+  <p><a href="mailto:albatrossolutions@icloud.com">albatrossolutions@icloud.com</a><br>
+  Albatros Solutions</p>
+</section>
+
+<footer>
+  <p>TrafficGuard &mdash; menu-bar network traffic monitor for macOS.
+  &copy;&nbsp;2026 Albatros Solutions.</p>
+  <p>This page loads no scripts, no webfonts, and no trackers.</p>
+</footer>
+
+</main>
+</body>
+</html>
